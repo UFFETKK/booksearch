@@ -6,12 +6,13 @@ export default function NavBar() {
   const navigate = useNavigate();
   return (
     <S.Container>
-      <div onClick={() => navigate("/")}>Search</div>
-      <div>
+      <div onClick={() => navigate("/")}>MyBook</div>
+      <div onClick={() => navigate("profile")}>Profile</div>
+      <div>My Book List</div>
+      <S.Input>
         <input type="text" placeholder="Search" />
         <button type="submit">Submit</button>
-      </div>
-      <div>Profile</div>
+      </S.Input>
     </S.Container>
   );
 }

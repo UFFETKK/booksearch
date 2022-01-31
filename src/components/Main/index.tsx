@@ -47,7 +47,7 @@ function Main() {
         {data &&
           data.map((a: any) => {
             return (
-              <div key={a} /*onClick={() => navigate(`/detail?${a.title}`)}*/>
+              <div key={a} onClick={() => navigate(`/detail/${a.isbn}`)}>
                 <div>
                   <img src={a.thumbnail} alt="img" />
                 </div>

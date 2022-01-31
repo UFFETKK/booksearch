@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/common/NavBar";
 import Main from "./pages/Main";
-import Profile from "./pages/Profile";
+import Detail from "./pages/Detail";
 
 function App() {
   const pathname = useLocation();
@@ -15,7 +15,7 @@ function App() {
       <NavBar />
       <Routes key={pathname.pathname}>
         <Route path="/" element={<Main />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/detail/:title" element={<Detail />} />
       </Routes>
     </>
   );

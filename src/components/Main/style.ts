@@ -53,6 +53,7 @@ export const ResultContainer = styled.div`
     max-width: 10rem;
     & > div:first-child > img {
       width: 8rem;
+      border: 1px solid gray;
     }
     & > div:nth-child(2) {
       display: flex;

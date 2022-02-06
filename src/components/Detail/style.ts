@@ -18,7 +18,7 @@ export const Container = styled.div`
       align-items: center;
       justify-content: flex-start;
       & > button {
-        width: 10rem;
+        width: 8rem;
         margin: 2rem auto;
       }
     }

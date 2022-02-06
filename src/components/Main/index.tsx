@@ -5,6 +5,7 @@ import * as S from "./style";
 function Main() {
   const [word, setWord] = useState<string>("");
   const [data, setData] = useState<any>();
+
   const navigate = useNavigate();
 
   const API_KEY = "36d5974e55f9a80fd96e9895520dafd8";
@@ -20,6 +21,7 @@ function Main() {
       });
     return data;
   };
+
   console.log(data);
   return (
     <S.Container>

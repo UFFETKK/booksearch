@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
+import { useRecoilState } from "recoil";
+import { bookState } from "../../recoil/bookState";
 
 function Detail() {
+  const [dataRecoil, setDataRecoil] = useRecoilState<any>(bookState);
+
   let isbn: number = Number(
     window.location.href.split("detail/")[1].split("%")[0]
   );
@@ -21,11 +25,26 @@ function Detail() {
       });
   }, []);
 
-  //   const usedBook = (isbn:number)=>{
-  // fetch('')
-  //   }
+  // const usedBook = (isbn: number) => {
+  //   fetch(
+  //     `https://cors-anywhere.herokuapp.com/http://www.aladin.co.kr/ttb/api/ItemOffStoreList.aspx?ttbkey=ttbsoyoungan020032001&itemIdType=ISBN&ItemId=${isbn}&output=xml`,
+  //     {
+  //       mode: "no-cors", // 'cors' by default
+  //     }
+  //   )
+  //     .then((response) => response.json())
+  //     .then((json) => console.log(json));
+  // };
 
-  console.log(data);
+  const gobook = () => {
+    const copy = data;
+    copy.title = data.title;
+    copy.url = data.thumbnail;
+    copy.authors = data.authors;
+    setDataRecoil(copy);
+  };
+
+  console.log(dataRecoil);
   return (
     <>
       {data && (
@@ -39,9 +58,10 @@ function Detail() {
             <p>information, {data.contents}</p>
             <div>
               <p>price : {data.price}</p>
-              <button /*onClick={()=>usedBook(isbn)}*/>
+              <button disabled /*onClick={() => usedBook(isbn)}*/>
                 중고도서 찾아보기
               </button>
+              <button onClick={() => gobook()}>내 책 추가하기</button>
             </div>
           </div>
         </S.Container>

@@ -7,7 +7,7 @@ export default function NavBar() {
   return (
     <S.Container>
       <div onClick={() => navigate("/")}>MyBook</div>
-      {/* <div onClick={() => navigate("profile")}></div> */}
+      <div onClick={() => navigate(`/mybook`)}></div>
       <div>My Book List</div>
       <S.Input>
         <input type="text" placeholder="Search" />

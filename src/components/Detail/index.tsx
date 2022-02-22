@@ -25,26 +25,23 @@ function Detail() {
       });
   }, []);
 
-  // const usedBook = (isbn: number) => {
-  //   fetch(
-  //     `https://cors-anywhere.herokuapp.com/http://www.aladin.co.kr/ttb/api/ItemOffStoreList.aspx?ttbkey=ttbsoyoungan020032001&itemIdType=ISBN&ItemId=${isbn}&output=xml`,
-  //     {
-  //       mode: "no-cors", // 'cors' by default
-  //     }
-  //   )
-  //     .then((response) => response.json())
-  //     .then((json) => console.log(json));
-  // };
+  const usedBook = (isbn: number) => {
+    fetch(
+      `http://www.aladin.co.kr/ttb/api/ItemOffStoreList.aspx?ttbkey=ttbsoyoungan020032001&itemIdType=ISBN&ItemId=${isbn}&output=xml`
+    )
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  };
 
   const gobook = () => {
-    const copy = data;
+    const copy = { ...dataRecoil };
     copy.title = data.title;
     copy.url = data.thumbnail;
     copy.authors = data.authors;
     setDataRecoil(copy);
   };
 
-  console.log(dataRecoil);
+  console.log("recoil", dataRecoil);
   return (
     <>
       {data && (
@@ -58,9 +55,7 @@ function Detail() {
             <p>information, {data.contents}</p>
             <div>
               <p>price : {data.price}</p>
-              <button disabled /*onClick={() => usedBook(isbn)}*/>
-                중고도서 찾아보기
-              </button>
+              <button onClick={() => usedBook(isbn)}>중고도서 찾아보기</button>
               <button onClick={() => gobook()}>내 책 추가하기</button>
             </div>
           </div>

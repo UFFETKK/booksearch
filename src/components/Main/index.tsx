@@ -21,8 +21,6 @@ function Main() {
       });
     return data;
   };
-
-  console.log(data);
   return (
     <S.Container>
       <div>

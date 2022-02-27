@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 
 function MyBook() {
-  return <div>내책</div>;
+  return (
+    <>
+      {/* {dataRecoil.map((data) => (
+        <div key={data.id}>
+          <div>{data.title}</div>
+        </div>
+      ))} */}
+    </>
+  );
 }
 export default MyBook;
